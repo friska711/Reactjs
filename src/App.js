@@ -1,10 +1,11 @@
 
 import './App.css';
-import { ButtonGoogleLogin } from './components/ButtonGoogleLogin';
+import { FormCarControlled, FormCarUncontrolled } from './components/FormCar';
 function App() {
   return (
     <div className="App">
-      <ButtonGoogleLogin/>
+      <FormCarUncontrolled/>
+      <FormCarControlled/>
     </div>
   );
 }

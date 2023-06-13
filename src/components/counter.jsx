@@ -1,14 +1,26 @@
-import { useContext } from "react";
-import { CounterContext } from "../context/CounterProvider";
+import {Component} from "react";
 
-
-export const Counter = () => {
-    const { count,setCount} =useContext (CounterContext)
-
-    return <div> 
-        <h2> Counter</h2>
-        <p>Count: {count}</p>
-        <button onClick={() => setCount(count +1)}>Increment</button>
-        <button onClick={() => setCount(count -1)} disabled = {count <= 0}>Decrement</button>
-    </div>
+export default class Counter extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            count:0
+        }
+    }
+    handleIncrement = () => { // arrow function 
+    if (this.state.count >= 10) {
+        this.setState({count : 0});
+        return;
+    }
+    this.setState({ count: this.state.count + 1 });
+}
+render () {
+    return (
+        <div>
+            <h2>counter</h2>
+            <p>count: {this.state.count}</p>
+            <button onClick={this.handleIncrement}>Increment</button>
+        </div>
+    )
+}
 }
